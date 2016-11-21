@@ -1,14 +1,15 @@
 import pymongo
 
-uri = "mongodb://127.0.0.1:27017"
-client = pymongo.MongoClient(uri)
-database = client['fullstack']
-collection = database['students']
+from models.post import Post
 
-students = [student['mark'] for student in collection.find({}) if int(student['mark']) < 100]
-# list comprehension
+#post = Post()
+post = Post(title="post title", author="post author", content="post content")
+post2 = Post("post 2 title", "post 2 content", "post 2 author")
 
-print(students)
+post2.title = "post 2 title"
+post2.author = "chau"
+post2.date = 12
+post2.content = "this is post 2 content"
 
-
-
+print(post2.date)
+print(post.author)
